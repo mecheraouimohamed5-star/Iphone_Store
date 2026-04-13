@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iphone store | الفخامة في التكنولوجيا</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #161617;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --accent-blue: #0071e3;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0; padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(15px);
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin: 0;
+            background: linear-gradient(135deg, #fff 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 120px 20px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #2d2d2f;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .btn-upload {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px dashed #444;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .card h3 { font-size: 1.4rem; margin: 10px 0; font-weight: 700; }
+        
+        .price-tag { color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem; }
+
+        .btn-action {
+            display: block;
+            width: 100%;
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+        }
+
+        input[type="file"] { display: none; }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Iphone store</h1>
+</header>
+
+<div class="container">
+    <div class="card">
+        <img id="img1" src="https://vortex-dev.github.io/cdn/iphone16promax.jpg">
+        <label class="btn-upload" onclick="document.getElementById('file1').click()">📷 تغيير صورة الـ 16 Pro Max</label>
+        <input type="file" id="file1" accept="image/*" onchange="preview(event, 'img1')">
+        <h3>iPhone 16 Pro Max</h3>
+        <p class="price-tag">التكنولوجيا الأكثر تقدماً</p>
+        <button class="btn-action">اطلب الآن</button>
+    </div>
+
+    <div class="card">
+        <img id="img2" src="https://vortex-dev.github.io/cdn/iphone15promax.jpg">
+        <label class="btn-upload" onclick="document.getElementById('file2').click()">📷 تغيير صورة الـ 15 Pro Max</label>
+        <input type="file" id="file2" accept="image/*" onchange="preview(event, 'img2')">
+        <h3>iPhone 15 Pro Max</h3>
+        <p class="price-tag">خفة التيتانيوم وقوة الأداء</p>
+        <button class="btn-action">اطلب الآن</button>
+    </div>
+
+    <div class="card">
+        <img id="img3" src="https://vortex-dev.github.io/cdn/iphone15pro.jpg">
+        <label class="btn-upload" onclick="document.getElementById('file3').click()">📷 تغيير صورة الـ 15 Pro</label>
+        <input type="file" id="file3" accept="image/*" onchange="preview(event, 'img3')">
+        <h3>iPhone 15 Pro</h3>
+        <p class="price-tag">احترافية كاملة في يدك</p>
+        <button class="btn-action">اطلب الآن</button>
+    </div>
+
+    <div class="card">
+        <img id="img4" src="https://vortex-dev.github.io/cdn/iphone13.jpg">
+        <label class="btn-upload" onclick="document.getElementById('file4').click()">📷 تغيير صورة الـ 13</label>
+        <input type="file" id="file4" accept="image/*" onchange="preview(event, 'img4')">
+        <h3>iPhone 13</h3>
+        <p class="price-tag">الأداء الموثوق والسعر الذكي</p>
+        <button class="btn-action">اطلب الآن</button>
+    </div>
+</div>
+
+<footer>
+    <p>Iphone store © 2026 - جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+    function preview(event, imgId) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById(imgId);
+            output.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
+</body>
+</html>
+    
