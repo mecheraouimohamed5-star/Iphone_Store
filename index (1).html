@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iphone store | Sky Glass Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* ألوان سماوية زجاجية */
+            --sky-bg: #87ceeb; 
+            --glass-card: rgba(255, 255, 255, 0.25);
+            --glass-button: rgba(0, 113, 227, 0.6);
+            --text-dark: #1d1d1f;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            /* خلفية سماوية متدرجة زجاجية */
+            background: linear-gradient(135deg, #a2d2ff 0%, #caf0f8 100%);
+            background-attachment: fixed;
+            color: var(--text-dark);
+            margin: 0; padding: 0;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: #0071e3;
+            font-weight: 900;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 120px 20px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* كروت المنتجات الزجاجية */
+        .card {
+            background: var(--glass-card);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 35px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 85%;
+            height: 240px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+        }
+
+        .card h3 { font-size: 1.6rem; margin: 10px 0; color: #0056b3; }
+        .price-tag { color: #555; margin-bottom: 25px; font-weight: 500; }
+
+        /* الزر الأزرق الزجاجي في الوسط */
+        .btn-action {
+            width: 85%;
+            background: var(--glass-button); /* أزرق زجاجي */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.2);
+        }
+
+        .btn-action:hover {
+            background: rgba(0, 113, 227, 0.8);
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 113, 227, 0.4);
+        }
+
+        a { text-decoration: none; width: 100%; display: flex; justify-content: center; }
+        input[type="file"] { display: none; }
+        .btn-upload { font-size: 0.75rem; color: #0071e3; cursor: pointer; margin-bottom: 10px; font-weight: bold; }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Iphone store</h1>
+</header>
+
+<div class="container">
+    
+    <div class="card">
+        <img id="img1" src="https://vortex-dev.github.io/cdn/iphone16promax.jpg">
+        <label class="btn-upload" onclick="document.getElementById('file1').click()">📷 تغيير الصورة</label>
+        <input type="file" id="file1" accept="image/*" onchange="preview(event, 'img1')">
+        <h3>iPhone 16 Pro Max</h3>
+        <p class="price-tag">إصدار التيتانيوم الفاخر</p>
+        <a href="https://wa.me/213792131668?text=أريد%20طلب%20iPhone%2016%20Pro%20Max">
+            <div class="btn-action">اطلب الآن</div>
+        </a>
+    </div>
+
+    <div class="card">
+        <img id="img2" src="https://vortex-dev.github.io/cdn/iphone15promax.jpg">
+        <label class="btn-upload" onclick="document.getElementById('file2').click()">📷 تغيير الصورة</label>
+        <input type="file" id="file2" accept="image/*" onchange="preview(event, 'img2')">
+        <h3>iPhone 15 Pro Max</h3>
+        <p class="price-tag">خفة وقوة لا مثيل لها</p>
+        <a href="https://wa.me/213792131668?text=أريد%20طلب%20iPhone%2015%20Pro%20Max">
+            <div class="btn-action">اطلب الآن</div>
+        </a>
+    </div>
+
+    <div class="card">
+        <img id="img3" src="https://vortex-dev.github.io/cdn/iphone15pro.jpg">
+        <label class="btn-upload" onclick="document.getElementById('file3').click()">📷 تغيير الصورة</label>
+        <input type="file" id="file3" accept="image/*" onchange="preview(event, 'img3')">
+        <h3>iPhone 14 Pro Max</h3>
+        <p class="price-tag">الأناقة والتميز</p>
+        <a href="https://wa.me/213792131668?text=أريد%20طلب%20iPhone%2014%20Pro%20Max">
+            <div class="btn-action">اطلب الآن</div>
+        </a>
+    </div>
+
+    <div class="card">
+        <img id="img4" src="https://vortex-dev.github.io/cdn/iphone13.jpg">
+        <label class="btn-upload" onclick="document.getElementById('file4').click()">📷 تغيير الصورة</label>
+        <input type="file" id="file4" accept="image/*" onchange="preview(event, 'img4')">
+        <h3>iPhone 13</h3>
+        <p class="price-tag">أداء جبار وسعر مميز</p>
+        <a href="https://wa.me/213792131668?text=أريد%20طلب%20iPhone%2013">
+            <div class="btn-action">اطلب الآن</div>
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    <p>Iphone store - عنابة / الطارف</p>
+    <p>© 2026 جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+    function preview(event, imgId) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            document.getElementById(imgId).src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
+</body>
+</html>
+    
